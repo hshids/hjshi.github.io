@@ -94,3 +94,9 @@ footer {
 
     animation: ink-splash 1.35s linear infinite;
 }
+
+@media (min-width: 600px) {
+    .paper {
+        margin: 5px 10px;
+    }
+}
