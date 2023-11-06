@@ -21,6 +21,11 @@ body {
 }
 
 header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    /* 确保header在最上面 */
     background-color: #333;
     color: #fff;
     padding: 10px 0;
@@ -44,6 +49,10 @@ nav ul li a {
 }
 
 main {
+    margin-top: 60px;
+    /* header的高度 */
+    height: calc(100% - 120px);
+    /* 减去header和footer的高度 */
     position: relative;
     /* 设置为相对定位 */
     min-height: 100vh;
@@ -56,8 +65,9 @@ main {
     padding: 0;
     z-index: 1;
     /* 确保在footer之上 */
-    overflow: hidden;
+    overflow: auto;
     /* 防止超出部分滚动 */
+    -webkit-overflow-scrolling: touch;
 }
 
 .profile-pic {
@@ -83,9 +93,9 @@ main {
     /* 左侧50%的位置 */
     background-color: rgba(211, 211, 211, 0.85);
     /* 半透明灰色背景 */
-    width: 50vw;
+    width: 55vw;
     /* 使用视口宽度的百分比设定宽度 */
-    height: 70vh;
+    height: 65vh;
     /* 使用视口高度的百分比设定高度 */
     box-shadow: 0 30px 40px rgba(0, 0, 0, 0.8);
     /* 明显的阴影效果 */
@@ -130,7 +140,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }

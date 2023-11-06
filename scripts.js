@@ -44,7 +44,7 @@ function generateInkDrops(number) {
 }
 
 window.onload = function () {
-    generateInkDrops(5);
+    generateInkDrops(3);
 
 
 };
