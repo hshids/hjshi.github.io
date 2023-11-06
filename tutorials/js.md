@@ -13,6 +13,16 @@
     - [创建仿纸张层 Paper-Like Overlay](#创建仿纸张层-paper-like-overlay)
     - [把图片切割成圆形 Circular Profile Picture](#把图片切割成圆形-circular-profile-picture)
   - [Aligning Content](#aligning-content)
+  - [CSS 快速参考手册](#css-快速参考手册)
+    - [基础选择器和样式](#基础选择器和样式)
+    - [布局和定位](#布局和定位)
+    - [响应式设计](#响应式设计)
+      - [视口元标签](#视口元标签)
+      - [媒体查询](#媒体查询)
+      - [使用视口单位（vw/vh）](#使用视口单位vwvh)
+    - [交互和动画](#交互和动画)
+    - [文本和字体](#文本和字体)
+    - [其他实用样式](#其他实用样式)
 - [JavaScript 基础到动画入门教程](#javascript-基础到动画入门教程)
   - [目录](#目录-1)
   - [JavaScript 基础](#javascript-基础)
@@ -144,6 +154,143 @@ The `.content` class is used to wrap your textual content and images, ensuring t
 
 Remember to practice these CSS properties and experiment with different values to see how they affect your layout. The best way to learn is by doing, so don't hesitate to tweak and play with the code!
 
+## CSS 快速参考手册
+在这个手册中，我们将汇总之前讨论的一些关键CSS知识点，以及响应式设计的实践技巧。这将帮助你设计和实现一个在不同设备上均能良好展现的网页。
+
+
+### 基础选择器和样式
+
+```css
+/* 元素选择器 */
+body {
+    font-family: 'Roboto Mono', monospace;
+    color: #333;
+}
+
+/* 类选择器 */
+.paper {
+    background: white;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* ID选择器 */
+#unique-element {
+    border: 1px solid #333;
+}
+
+/* 属性选择器 */
+input[type="text"] {
+    background-color: #f1f1f1;
+}
+```
+
+### 布局和定位
+
+```css
+/* Flexbox布局 */
+.container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* 绝对定位 */
+.absolute-element {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+}
+
+/* 固定定位 */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+```
+
+### 响应式设计
+
+#### 视口元标签
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1">
+```
+
+#### 媒体查询
+
+```css
+/* 当屏幕宽度小于600px时 */
+@media (max-width: 600px) {
+    .paper {
+        width: 100%; /* 纸条宽度为100% */
+        margin: 10px 0;
+    }
+}
+```
+
+#### 使用视口单位（vw/vh）
+
+```css
+.element {
+    width: 50vw; /* 宽度为视口宽度的50% */
+    height: 50vh; /* 高度为视口高度的50% */
+}
+```
+
+### 交互和动画
+
+```css
+/* 悬停效果 */
+.button:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* 过渡效果 */
+.transition-element {
+    transition: background-color 0.3s ease;
+}
+```
+
+### 文本和字体
+
+```css
+/* 字体样式 */
+.font-styling {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+/* 文本装饰 */
+.no-decoration {
+    text-decoration: none; /* 去除下划线 */
+    color: inherit; /* 继承父元素颜色 */
+}
+```
+
+### 其他实用样式
+
+```css
+/* 盒模型 */
+.box-model {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 20px;
+}
+
+/* 背景和边框 */
+.background-border {
+    background-color: #f1f1f1;
+    border-radius: 4px; /* 圆角边框 */
+}
+```
+
+请确保测试您的CSS在不同的设备和浏览器上的表现，以确保所有用户都能获得良好的体验。
 
 # JavaScript 基础到动画入门教程
 
