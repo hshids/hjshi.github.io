@@ -94,30 +94,3 @@ footer {
 
     animation: ink-splash 1.35s linear infinite;
 }
-
-/* 对于宽度小于或等于600px的屏幕应用样式 */
-@media screen and (max-width: 600px) {
-    .some-class {
-        padding: 10px;
-    }
-
-    /* 其他样式... */
-}
-
-/* 对于宽度在601px到800px之间的屏幕应用样式 */
-@media screen and (min-width: 601px) and (max-width: 800px) {
-    .some-class {
-        padding: 20px;
-    }
-
-    /* 其他样式... */
-}
-
-/* 对于宽度大于800px的屏幕应用样式 */
-@media screen and (min-width: 801px) {
-    .some-class {
-        padding: 30px;
-    }
-
-    /* 其他样式... */
-}
