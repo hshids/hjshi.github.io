@@ -83,10 +83,10 @@ main {
     /* 左侧50%的位置 */
     background-color: rgba(211, 211, 211, 0.85);
     /* 半透明灰色背景 */
-    width: 180mm;
-    /* A4宽度约为210mm */
-    height: 210mm;
-    /* A4高度约为297mm */
+    width: 50vw;
+    /* 使用视口宽度的百分比设定宽度 */
+    height: 70vh;
+    /* 使用视口高度的百分比设定高度 */
     box-shadow: 0 30px 40px rgba(0, 0, 0, 0.8);
     /* 明显的阴影效果 */
     display: flex;
@@ -95,7 +95,12 @@ main {
     /* 确保它高于其他相对定位的元素 */
     transform: translate(-50%, -50%);
     /* 使其居中 */
-    padding: 10mm;
+    padding: 5vw;
+    overflow: auto;
+    max-width: 180mm;
+    /* 最大宽度，可根据需要调整 */
+    max-height: 210mm;
+    /* 最大高度，可根据需要调整 */
 
 }
 
