@@ -1,0 +1,96 @@
+.background-image {
+    position: fixed;
+    /* 或者absolute, 取决于你想如何定位它 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/back1.png');
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+
+    color: #333;
+    text-align: center;
+    padding: 45px 0;
+    background-color: rgba(255, 255, 255, 0.45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 78vh;
+    text-align: center;
+    font-size: 1.25rem;
+}
+
+main h1 {
+    font-family: 'Orbitron', sans-serif;
+    /* 段落字体大小 */
+}
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* add ink animation*/
+
+@keyframes ink-splash {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.ink-drop {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+
+    animation: ink-splash 1.35s linear infinite;
+}

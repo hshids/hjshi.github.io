@@ -1,0 +1,544 @@
+<!doctype html>
+<html >
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--[if lt IE 9]>
+                <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+
+    <!-- <link rel="stylesheet" type="text/css" href="template.css" /> -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/template.css" />
+
+    <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <!-- <script type='text/javascript' src='menu/js/jquery.cookie.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.hoverIntent.minified.js'></script> -->
+    <!-- <script type='text/javascript' src='menu/js/jquery.dcjqaccordion.2.7.min.js'></script> -->
+
+    <!-- <link href="menu/css/skins/blue.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/graphite.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="menu/css/skins/grey.css" rel="stylesheet" type="text/css" /> -->
+
+    <!-- <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+
+    <!-- <script src="script.js"></script> -->
+
+    <!-- <script src="jquery.sticky-kit.js "></script> -->
+    <script type='text/javascript'
+        src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.cookie.js'></script>
+    <script type='text/javascript'
+        src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript'
+        src='https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/js/jquery.dcjqaccordion.2.7.min.js'></script>
+
+    <link
+        href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/blue.css"
+        rel="stylesheet" type="text/css" />
+    <link
+        href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/graphite.css"
+        rel="stylesheet" type="text/css" />
+    <link
+        href="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/menu/css/skins/grey.css"
+        rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/ryangrose/easy-pandoc-templates@948e28e5/css/elegant_bootstrap.css"
+        rel="stylesheet" type="text/css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/script.js"></script>
+
+    <script
+        src="https://cdn.jsdelivr.net/gh/diversen/pandoc-bootstrap-adaptive-template@959c3622/jquery.sticky-kit.js"></script>
+    <meta name="generator" content="pandoc" />
+            <title>js</title>
+    <style type="text/css">
+        code {
+            white-space: pre;
+        }
+    </style>
+            <style type="text/css">
+        pre > code.sourceCode { white-space: pre; position: relative; }
+        pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+        pre > code.sourceCode > span:empty { height: 1.2em; }
+        .sourceCode { overflow: visible; }
+        code.sourceCode > span { color: inherit; text-decoration: inherit; }
+        div.sourceCode { margin: 1em 0; }
+        pre.sourceCode { margin: 0; }
+        @media screen {
+        div.sourceCode { overflow: auto; }
+        }
+        @media print {
+        pre > code.sourceCode { white-space: pre-wrap; }
+        pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+        }
+        pre.numberSource code
+          { counter-reset: source-line 0; }
+        pre.numberSource code > span
+          { position: relative; left: -4em; counter-increment: source-line; }
+        pre.numberSource code > span > a:first-child::before
+          { content: counter(source-line);
+            position: relative; left: -1em; text-align: right; vertical-align: baseline;
+            border: none; display: inline-block;
+            -webkit-touch-callout: none; -webkit-user-select: none;
+            -khtml-user-select: none; -moz-user-select: none;
+            -ms-user-select: none; user-select: none;
+            padding: 0 4px; width: 4em;
+            color: #aaaaaa;
+          }
+        pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+        div.sourceCode
+          {   }
+        @media screen {
+        pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+        }
+        code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+        code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+        code span.at { color: #7d9029; } /* Attribute */
+        code span.bn { color: #40a070; } /* BaseN */
+        code span.bu { color: #008000; } /* BuiltIn */
+        code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+        code span.ch { color: #4070a0; } /* Char */
+        code span.cn { color: #880000; } /* Constant */
+        code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+        code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+        code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+        code span.dt { color: #902000; } /* DataType */
+        code span.dv { color: #40a070; } /* DecVal */
+        code span.er { color: #ff0000; font-weight: bold; } /* Error */
+        code span.ex { } /* Extension */
+        code span.fl { color: #40a070; } /* Float */
+        code span.fu { color: #06287e; } /* Function */
+        code span.im { color: #008000; font-weight: bold; } /* Import */
+        code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+        code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+        code span.op { color: #666666; } /* Operator */
+        code span.ot { color: #007020; } /* Other */
+        code span.pp { color: #bc7a00; } /* Preprocessor */
+        code span.sc { color: #4070a0; } /* SpecialChar */
+        code span.ss { color: #bb6688; } /* SpecialString */
+        code span.st { color: #4070a0; } /* String */
+        code span.va { color: #19177c; } /* Variable */
+        code span.vs { color: #4070a0; } /* VerbatimString */
+        code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    </style>
+                </head>
+
+<body>
+
+
+        <div class="container">
+        <div class="row">
+                        <div class="span12">
+
+                
+                                <h1
+                                id="前端开发入门教程">前端开发入门教程</h1>
+                                <p>欢迎来到前端开发入门教程！本教程将指导您了解创建基本网页所需的HTML,
+                                CSS和JavaScript的基础知识。</p>
+                                <h2 id="目录">目录</h2>
+                                <ul>
+                                <li><a
+                                href="#前端开发入门教程">前端开发入门教程</a>
+                                <ul>
+                                <li><a href="#目录">目录</a></li>
+                                <li><a
+                                href="#html基础">HTML基础</a></li>
+                                <li><a href="#css基础">CSS基础</a></li>
+                                <li><a href="#css-进阶实战">CSS
+                                进阶实战</a>
+                                <ul>
+                                <li><a
+                                href="#创建仿纸张层-paper-like-overlay">创建仿纸张层
+                                Paper-Like Overlay</a></li>
+                                <li><a
+                                href="#把图片切割成圆形-circular-profile-picture">把图片切割成圆形
+                                Circular Profile Picture</a></li>
+                                </ul></li>
+                                <li><a href="#aligning-content">Aligning
+                                Content</a></li>
+                                </ul></li>
+                                <li><a
+                                href="#javascript-基础到动画入门教程">JavaScript
+                                基础到动画入门教程</a>
+                                <ul>
+                                <li><a href="#目录-1">目录</a></li>
+                                <li><a
+                                href="#javascript-基础">JavaScript
+                                基础</a>
+                                <ul>
+                                <li><a
+                                href="#数据类型和变量">数据类型和变量</a></li>
+                                <li><a
+                                href="#控制结构">控制结构</a></li>
+                                <li><a
+                                href="#javascript-于网页交互基础">JavaScript
+                                于网页交互基础</a></li>
+                                </ul></li>
+                                <li><a href="#dom-操作">DOM
+                                操作</a></li>
+                                <li><a
+                                href="#事件处理">事件处理</a></li>
+                                <li><a href="#动画基础">动画基础</a>
+                                <ul>
+                                <li><a href="#使用-setinterval">使用
+                                setInterval</a></li>
+                                <li><a
+                                href="#使用-requestanimationframe">使用
+                                requestAnimationFrame</a></li>
+                                </ul></li>
+                                <li><a
+                                href="#创建动态效果">创建动态效果</a>
+                                <ul>
+                                <li><a href="#示例---动态墨点动画">示例
+                                - 动态墨点动画</a>
+                                <ul>
+                                <li><a href="#1-创建基本的墨点结构">1.
+                                创建基本的墨点结构</a></li>
+                                <li><a
+                                href="#2-使用javascript动态生成墨点">2.
+                                使用JavaScript动态生成墨点</a></li>
+                                <li><a
+                                href="#3-生成初始墨点并设置定时器">3.
+                                生成初始墨点并设置定时器</a></li>
+                                <li><a href="#4-css动画效果">4.
+                                CSS动画效果</a></li>
+                                <li><a
+                                href="#5-结合使用javascript和css">5.
+                                结合使用JavaScript和CSS</a></li>
+                                </ul></li>
+                                <li><a href="#结语">结语</a></li>
+                                </ul></li>
+                                </ul></li>
+                                </ul>
+                                <h2 id="html基础">HTML基础</h2>
+                                <p>HTML是构建网页内容的骨架。以下是创建一个基础HTML页面的步骤：</p>
+                                <div class="sourceCode" id="cb1"><pre
+                                class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;title&gt;</span>我的网页<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/head&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;body&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;header&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;h1&gt;</span>网页标题<span class="kw">&lt;/h1&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/header&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;nav&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 导航链接 --&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/nav&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;main&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;h2&gt;</span>主要内容标题<span class="kw">&lt;/h2&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;p&gt;</span>这里是主要内容。<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/main&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;footer&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- 联系信息 --&gt;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/footer&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/body&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+                                <ul>
+                                <li><strong>DOCTYPE</strong>
+                                声明定义了文档类型，告诉浏览器页面使用的是HTML5。</li>
+                                <li><strong>html</strong>
+                                是页面的根元素。</li>
+                                <li><strong>head</strong>
+                                包含了所有的元数据和页面标题。</li>
+                                <li><strong>body</strong>
+                                包含了网页的所有内容。</li>
+                                </ul>
+                                <h2 id="css基础">CSS基础</h2>
+                                <p>CSS用于设置网页的样式。可以通过以下方法将CSS添加到HTML中：</p>
+                                <div class="sourceCode" id="cb2"><pre
+                                class="sourceCode css"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* 直接在HTML文件中通过 &lt;style&gt; 标签添加 */</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;style<span class="op">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    body {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">background-color</span>: <span class="cn">#f0f0f0</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    h1 {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">color</span>: <span class="cn">#333</span><span class="op">;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>&lt;/style<span class="op">&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">/* 通过链接外部CSS文件 */</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;styles<span class="fu">.css</span>&quot;<span class="op">&gt;</span></span></code></pre></div>
+                                <p>在CSS中，您可以使用类（<code>.classname</code>）、ID（<code>#idname</code>）或HTML标签来定义样式规则。</p>
+                                <h2 id="css-进阶实战">CSS 进阶实战</h2>
+                                <h3
+                                id="创建仿纸张层-paper-like-overlay">创建仿纸张层
+                                Paper-Like Overlay</h3>
+                                <p>We’ll start with the CSS for the
+                                paper-like overlay that gives the
+                                feeling of a semi-transparent letter
+                                paper.</p>
+                                <div class="sourceCode" id="cb3"><pre
+                                class="sourceCode css"><code class="sourceCode css"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.paper-like-overlay</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background-color</span>: <span class="fu">rgba(</span><span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">255</span><span class="op">,</span> <span class="dv">0.8</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">box-shadow</span>: <span class="dv">0</span> <span class="dv">4</span><span class="dt">px</span> <span class="dv">6</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0.1</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">display</span>: <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">flex-direction</span>: <span class="dv">column</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">align-items</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">justify-content</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">45</span><span class="dt">px</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin-top</span>: <span class="dv">-5</span><span class="dt">vh</span><span class="op">;</span> <span class="co">/* Adjust this value as per your layout */</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span> <span class="co">/* To position it above the footer */</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">z-index</span>: <span class="dv">10</span><span class="op">;</span> <span class="co">/* Ensures it&#39;s above other elements */</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <p>This CSS snippet gives a div a
+                                semi-transparent white background with a
+                                slight shadow, making it appear like a
+                                piece of paper. It’s centered using
+                                Flexbox and positioned above other
+                                elements with <code>z-index</code>.</p>
+                                <h3
+                                id="把图片切割成圆形-circular-profile-picture">把图片切割成圆形
+                                Circular Profile Picture</h3>
+                                <p>For creating a circular profile
+                                picture, we use the following CSS:</p>
+                                <div class="sourceCode" id="cb4"><pre
+                                class="sourceCode css"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.profile-pic</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">width</span>: <span class="dv">150</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">150</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-radius</span>: <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">object-fit</span>: <span class="dv">cover</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin-bottom</span>: <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <p>The <code>border-radius: 50%</code>
+                                property is key to making the image
+                                circular. The
+                                <code>object-fit: cover</code> ensures
+                                that the image covers the entire area
+                                without distortion.</p>
+                                <h2 id="aligning-content">Aligning
+                                Content</h2>
+                                <p>Lastly, we ensure that the content is
+                                well-aligned and presents well on
+                                various screen sizes.</p>
+                                <div class="sourceCode" id="cb5"><pre
+                                class="sourceCode css"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.content</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">max-width</span>: <span class="dv">800</span><span class="dt">px</span><span class="op">;</span> <span class="co">/* Sets a max width for the content */</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">margin</span>: <span class="bu">auto</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">text-align</span>: <span class="dv">center</span><span class="op">;</span> <span class="co">/* Centers the text */</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <p>The <code>.content</code> class is
+                                used to wrap your textual content and
+                                images, ensuring they are centered and
+                                don’t stretch too wide on larger
+                                screens.</p>
+                                <p>Remember to practice these CSS
+                                properties and experiment with different
+                                values to see how they affect your
+                                layout. The best way to learn is by
+                                doing, so don’t hesitate to tweak and
+                                play with the code!</p>
+                                <h1
+                                id="javascript-基础到动画入门教程">JavaScript
+                                基础到动画入门教程</h1>
+                                <p>欢迎来到JavaScript基础到动画入门教程！本教程将指导您从JavaScript基础开始，一直学习到创建基本动画的技巧。</p>
+                                <h2 id="目录-1">目录</h2>
+                                <ul>
+                                <li><a
+                                href="#javascript-基础">JavaScript
+                                基础</a></li>
+                                <li><a href="#dom-操作">DOM
+                                操作</a></li>
+                                <li><a
+                                href="#事件处理">事件处理</a></li>
+                                <li><a
+                                href="#动画基础">动画基础</a></li>
+                                <li><a
+                                href="#创建动态效果">创建动态效果</a></li>
+                                </ul>
+                                <h2 id="javascript-基础">JavaScript
+                                基础</h2>
+                                <p>JavaScript是一种高级、解释执行的编程语言，广泛用于网页交互。</p>
+                                <h3
+                                id="数据类型和变量">数据类型和变量</h3>
+                                <p>JavaScript有几种数据类型：<code>String</code>,
+                                <code>Number</code>,
+                                <code>Boolean</code>,
+                                <code>Object</code>,
+                                <code>Function</code>,
+                                <code>Symbol</code>,
+                                <code>undefined</code>, 和
+                                <code>null</code>。</p>
+                                <div class="sourceCode" id="cb6"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 字符串</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> name <span class="op">=</span> <span class="st">&quot;Alice&quot;</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// 数字</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> age <span class="op">=</span> <span class="dv">25</span><span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// 布尔值</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> isStudent <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">// 对象</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> person <span class="op">=</span> {</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;Alice&quot;</span><span class="op">,</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">age</span><span class="op">:</span> <span class="dv">25</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co">// 函数</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">greet</span>() {</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Hello World!&quot;</span>)<span class="op">;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <h3 id="控制结构">控制结构</h3>
+                                <p>JavaScript提供了标准的控制结构，如
+                                if, for, while。</p>
+                                <div class="sourceCode" id="cb7"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// if语句</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (age <span class="op">&gt;</span> <span class="dv">18</span>) {</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Adult&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Minor&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">// for循环</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(i)<span class="op">;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">// while循环</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (isStudent) {</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;Studying&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 假设有一个退出循环的条件</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <h3
+                                id="javascript-于网页交互基础">JavaScript
+                                于网页交互基础</h3>
+                                <p>JavaScript为网页添加交互性。可以直接在HTML文件中添加：</p>
+                                <div class="sourceCode" id="cb8"><pre
+                                class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 这里是JavaScript代码</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Hello, World!&#39;</span>)<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/script&gt;</span></span></code></pre></div>
+                                <p>或者链接外部JavaScript文件：</p>
+                                <div class="sourceCode" id="cb9"><pre
+                                class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script</span> <span class="er">src</span><span class="ot">=</span><span class="st">&quot;scripts.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span></code></pre></div>
+                                <h2 id="dom-操作">DOM 操作</h2>
+                                <p>文档对象模型（DOM）是HTML和XML文档的编程接口。</p>
+                                <p>javascript</p>
+                                <div class="sourceCode" id="cb10"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 获取元素</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> myElement <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;myElement&#39;</span>)<span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">// 改变内容</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>myElement<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&quot;New Content&quot;</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">// 改变样式</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>myElement<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">color</span> <span class="op">=</span> <span class="st">&quot;blue&quot;</span><span class="op">;</span></span></code></pre></div>
+                                <h2 id="事件处理">事件处理</h2>
+                                <p>事件处理允许您响应用户的行为。</p>
+                                <div class="sourceCode" id="cb11"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 添加事件监听器</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>myElement<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">&#39;click&#39;</span><span class="op">,</span> <span class="kw">function</span>() {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Element clicked!&#39;</span>)<span class="op">;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+                                <h2 id="动画基础">动画基础</h2>
+                                <p>在JavaScript中，动画可以通过多种方式实现，例如
+                                setInterval, requestAnimationFrame 或
+                                CSS动画与JavaScript相结合。</p>
+                                <h3 id="使用-setinterval">使用
+                                setInterval</h3>
+                                <div class="sourceCode" id="cb12"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 每1000ms改变一次颜色</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="pp">setInterval</span>(<span class="kw">function</span>() {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  myElement<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">color</span> <span class="op">=</span> myElement<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">color</span> <span class="op">==</span> <span class="st">&#39;blue&#39;</span> <span class="op">?</span> <span class="st">&#39;red&#39;</span> <span class="op">:</span> <span class="st">&#39;blue&#39;</span><span class="op">;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span></code></pre></div>
+                                <h3 id="使用-requestanimationframe">使用
+                                requestAnimationFrame</h3>
+                                <div class="sourceCode" id="cb13"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">animate</span>() {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 动画代码</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  myElement<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">left</span> <span class="op">=</span> (<span class="pp">parseInt</span>(myElement<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">left</span><span class="op">,</span> <span class="dv">10</span>) <span class="op">||</span> <span class="dv">0</span>) <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> <span class="st">&#39;px&#39;</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// 递归调用</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">requestAnimationFrame</span>(animate)<span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co">// 启动动画</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">requestAnimationFrame</span>(animate)<span class="op">;</span></span></code></pre></div>
+                                <h2 id="创建动态效果">创建动态效果</h2>
+                                <h3 id="示例---动态墨点动画">示例 -
+                                动态墨点动画</h3>
+                                <p>创建不规则墨点效果的动画，让墨点在屏幕上随机位置出现，并具有随机的形状和大小。在本节中，我们将学习如何使用JavaScript和CSS来创建一个动态的墨点动画效果。</p>
+                                <h4 id="创建基本的墨点结构">1.
+                                创建基本的墨点结构</h4>
+                                <p>我们首先需要在HTML中创建一个容器，用来放置我们的墨点。</p>
+                                <div class="sourceCode" id="cb14"><pre
+                                class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">&quot;ink-container&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span></code></pre></div>
+                                <h4 id="使用javascript动态生成墨点">2.
+                                使用JavaScript动态生成墨点</h4>
+                                <p>为了生成墨点，我们将编写一个JavaScript函数来创建一个新的<code>div</code>元素，并赋予它一些随机的属性，比如位置和大小。</p>
+                                <div class="sourceCode" id="cb15"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createInkDrop</span>() {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> inkDrop <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    inkDrop<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(<span class="st">&#39;ink-drop&#39;</span>)<span class="op">;</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    inkDrop<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">top</span> <span class="op">=</span> <span class="fu">randomPosition</span>() <span class="op">+</span> <span class="st">&#39;vh&#39;</span><span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    inkDrop<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">left</span> <span class="op">=</span> <span class="fu">randomPosition</span>() <span class="op">+</span> <span class="st">&#39;vw&#39;</span><span class="op">;</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    inkDrop<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">transform</span> <span class="op">=</span> <span class="vs">`scale(</span><span class="sc">${</span><span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> <span class="dv">1</span><span class="sc">}</span><span class="vs">)`</span><span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...其他样式属性</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> inkDrop<span class="op">;</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <h4 id="生成初始墨点并设置定时器">3.
+                                生成初始墨点并设置定时器</h4>
+                                <p>我们将使用<code>window.onload</code>事件来初始化动画，并设置一个定时器来定期添加新的墨点。</p>
+                                <div class="sourceCode" id="cb16"><pre
+                                class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">window</span><span class="op">.</span><span class="at">onload</span> <span class="op">=</span> <span class="kw">function</span>() {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">generateInkDrops</span>(<span class="dv">5</span>)<span class="op">;</span> <span class="co">// 生成5个初始墨点</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 每秒添加一个新墨点</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="pp">setInterval</span>(() <span class="kw">=&gt;</span> {</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;ink-container&#39;</span>)<span class="op">.</span><span class="fu">appendChild</span>(<span class="fu">createInkDrop</span>())<span class="op">;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span> <span class="dv">1000</span>)<span class="op">;</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+                                <h4 id="css动画效果">4. CSS动画效果</h4>
+                                <p>在CSS中，我们定义墨点的基本样式和动画效果。</p>
+                                <div class="sourceCode" id="cb17"><pre
+                                class="sourceCode css"><code class="sourceCode css"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">.ink-drop</span> {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">position</span>: <span class="dv">absolute</span><span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">border-radius</span>: <span class="dv">50</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">background</span>: <span class="cn">black</span><span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">width</span>: <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">height</span>: <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">animation</span>: ink-splash <span class="dv">2</span><span class="dt">s</span> <span class="dv">linear</span> <span class="dv">infinite</span><span class="op">;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="im">@keyframes</span> ink-splash {</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0%</span> { <span class="kw">transform</span>: <span class="fu">scale(</span><span class="dv">0</span><span class="fu">)</span><span class="op">;</span> <span class="kw">opacity</span>: <span class="dv">1</span><span class="op">;</span> }</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">100%</span> { <span class="kw">transform</span>: <span class="fu">scale(</span><span class="dv">1</span><span class="fu">)</span><span class="op">;</span> <span class="kw">opacity</span>: <span class="dv">0</span><span class="op">;</span> }</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+                                <h4 id="结合使用javascript和css">5.
+                                结合使用JavaScript和CSS</h4>
+                                <p>在CSS中设置
+                                <code>animation: ink-splash 2s linear infinite;</code>
+                                意味着墨点将应用 <code>ink-splash</code>
+                                关键帧动画，动画每次执行将持续2秒，以线性的速度过渡（即匀速），并且动画将无限次重复。</p>
+                                <p>而JavaScript中使用
+                                <code>setInterval</code>
+                                每秒添加一个新的墨点则是控制DOM（文档对象模型）动态添加新的墨点元素。这些墨点一旦添加到DOM中，就会立即开始应用CSS定义的动画。</p>
+                                <p>这里的关系是：</p>
+                                <ul>
+                                <li>CSS定义了单个墨点动画的外观和行为。</li>
+                                <li>JavaScript则定期每秒在页面上生成并添加一个新的墨点元素。</li>
+                                </ul>
+                                <p>当新的墨点通过JavaScript创建并插入到DOM中时，浏览器检测到该元素有一个CSS动画定义，因此新的墨点会立即开始动画。由于动画设置为无限循环，每个墨点会独立地无限重复其动画。</p>
+                                <p>结合这两部分，你的网页会持续不断地在随机位置生成新的墨点，而每个墨点都会执行2秒渐隐的动画，然后重新开始。这就创造了一种看起来墨点不断出现并渐隐的动态效果。</p>
+                                <p>JavaScript控制墨点的动态生成和位置设置，CSS则控制它们的外观和动画效果。通过这种方式，我们创建了一个简单但是动态和有趣的墨点效果。</p>
+                                <h3 id="结语">结语</h3>
+                                <p>本教程介绍了如何使用HTML, CSS,
+                                和JavaScript来创建一个简单的动态墨点效果。这只是一个起点，通过实践，您可以进一步探索并创造出更多复杂和精细的动态效果。记住，编程是一个不断学习和创造的过程，不要害怕尝试和犯错误。继续编码，享受创造！</p>
+                                <p>请将这段内容加入到你的教程文件中，你可以使用Markdown来格式化和组织这些信息。这会帮助你巩固新学到的知识，并且随时可以回来复习。</p>
+                            </div>
+        </div>
+    </div>
+    <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+
+</body>
+
+</html>
