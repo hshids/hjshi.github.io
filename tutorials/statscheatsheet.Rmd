@@ -395,3 +395,6 @@ ggplot(experiment_data, aes(x = nutrient_concentration, y = growth_rate)) +
 ```
 
 如果p值小于你的显著性水平（通常为0.05），则可以认为营养素浓度与细胞生长速率之间存在显著的线性关系。而R平方值则告诉你模型拟合的好坏，即营养素浓度变化能解释细胞生长速率变化的比例。
+
+
+# 结构方程模型 (SEM) 

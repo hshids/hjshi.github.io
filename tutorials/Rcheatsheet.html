@@ -7,7 +7,7 @@
 
         <meta name="author" content="HJ. S." />
     
-        <meta name="date" content="2023-11-06" />
+        <meta name="date" content="2023-11-08" />
     
     <title>R Cheat Sheet</title>
 
@@ -1901,6 +1901,7 @@ margin-left: 0 !important;
             </ul></li>
             <li><a href="#查看并认识数据" id="toc-查看并认识数据">查看并认识数据</a>
             <ul>
+            <li><a href="#认识数据结构" id="toc-认识数据结构">认识数据结构</a></li>
             <li><a href="#查看数据结构包括几个variable和数据类型" id="toc-查看数据结构包括几个variable和数据类型">查看数据结构：包括几个variable和数据类型</a></li>
             <li><a href="#每一个variable的摘要" id="toc-每一个variable的摘要">每一个variable的摘要：</a></li>
             <li><a href="#检查行数-number-of-rows" id="toc-检查行数-number-of-rows">检查行数 number of
@@ -1950,7 +1951,7 @@ margin-left: 0 !important;
       <p class="authors">
            <span class="glyphicon glyphicon-user"></span> HJ. S.
       </p>
-         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-11-06</p>
+         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-11-08</p>
            
 
    
@@ -2096,6 +2097,17 @@ s2 = read.xlsx(wb, sheet = 2)</code></pre>
 </div>
 <div id="查看并认识数据" class="section level1">
 <h1>查看并认识数据</h1>
+<div id="认识数据结构" class="section level2">
+<h2>认识数据结构</h2>
+<ul>
+<li><p><strong>数值型（Numeric）</strong>：这是最常见的数据类型，用于表示数字。这些数字可以是整数也可以是小数。在数据分析中，数值型数据通常用于计算统计量，如平均值、中位数等。</p></li>
+<li><p><strong>因子型（Factor）</strong>：因子型数据用于表示分类数据，即数据可以分为不同的类别，但这些类别之间没有顺序。例如，性别（男/女）、血型（A/B/AB/O）等。因子型数据在统计分析中很重要，尤其是在分类和回归分析中。</p></li>
+<li><p><strong>字符型（Character）</strong>：字符型数据用于存储文本。它可以包含字母、数字和其他符号。字符型数据通常用于表示名称、地址或其他任何非数值的信息。</p></li>
+<li><p><strong>整型（Integer）</strong>：整型数据是数值型的一种，只包含整数，不包含小数。它用于计数或表示没有小数部分的数据。</p></li>
+<li><p><strong>双精度型（Double）</strong>：这也是数值型的一种，用于表示精度更高的浮点数。在R语言中，没有明确指定整数时，数值通常被视为双精度型。</p></li>
+<li><p><strong>逻辑型（Logical</strong>：逻辑型数据只有两个值：TRUE（真）和FALSE（假）。这种类型的数据用于条件判断和逻辑操作，比如判断一个条件是否满足。</p></li>
+<li><p><strong>日期型（Date）</strong>：日期型数据用于表示日期，通常包括年、月和日。它在处理时间序列数据时非常有用。</p></li>
+</ul>
 <pre class="r"><code>head(s1, n=2)</code></pre>
 <pre><code>##       id              relid year active_year code_status type_of_violence
 ## 1 186123   HAI-1989-1-244-2 1989           1       Clear                1
@@ -2103,6 +2115,7 @@ s2 = read.xlsx(wb, sheet = 2)</code></pre>
 ##   conflict_dset_id conflict_new_id
 ## 1              381             381
 ## 2              381             381</code></pre>
+</div>
 <div id="查看数据结构包括几个variable和数据类型" class="section level2">
 <h2>查看数据结构：包括几个variable和数据类型</h2>
 <pre class="r"><code>str(s1)</code></pre>
