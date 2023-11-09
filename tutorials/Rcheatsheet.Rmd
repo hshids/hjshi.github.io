@@ -1,5 +1,19 @@
 ---
 title: "R Cheat Sheet"
+author: "HJ. S."
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    latex_engine: xelatex
+header-includes:
+  - \usepackage{ctex}
+
+---
+knit to html
+---
+title: "Statistics Cheat Sheet"
 date: "`r Sys.Date()`"
 author: "HJ. S."
 output:
