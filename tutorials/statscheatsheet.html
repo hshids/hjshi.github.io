@@ -7,7 +7,7 @@
 
         <meta name="author" content="HJ. S." />
     
-        <meta name="date" content="2023-11-09" />
+        <meta name="date" content="2023-11-14" />
     
     <title>Statistics Cheat Sheet</title>
 
@@ -1933,7 +1933,7 @@ margin-left: 0 !important;
       <p class="authors">
            <span class="glyphicon glyphicon-user"></span> HJ. S.
       </p>
-         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-11-09</p>
+         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-11-14</p>
            
 
    
@@ -2457,6 +2457,54 @@ head(experiment_data,n=2) # 显示数据框</code></pre>
 </div>
 <div id="结构方程模型-sem" class="section level1">
 <h1>结构方程模型 (SEM)</h1>
+<p>结构方程模型（SEM）是一种复杂的统计分析方法，用于研究变量之间的关系。它可以同时考虑多个因变量和自变量，还可以包括潜在变量（即无法直接观测的变量，比如智力、满意度等）。结构方程模型能够同时进行多重回归分析、路径分析以及因子分析。</p>
+<p>举一个简单的例子来说明：</p>
+<p>假设我们想研究工作满意度（这是一个潜在变量，因为它无法直接测量）如何影响员工的离职率。我们可以通过问卷调查来测量工作满意度的几个方面，如薪资满意度、工作环境、同事关系等。这些具体可测量的变量称为观测变量。</p>
+<p>在结构方程模型中，我们首先使用因子分析将薪资满意度、工作环境、同事关系等观测变量组合成一个潜在变量“工作满意度”。然后，我们使用路径分析来研究这个潜在变量“工作满意度”与另一个观测变量“离职率”的关系。</p>
+<p>在这个模型中，我们可以同时分析多个因素如何影响工作满意度，以及工作满意度又是如何影响离职率的。这样，结构方程模型帮助我们更全面地理解了工作满意度与离职率之间的复杂关系。</p>
+<p>结构方程模型的优点在于它能够处理复杂的变量关系，包括多个因变量和潜在变量，这在传统的统计方法中往往难以做到。不过，它也需要较高的统计知识和对数据的理解。</p>
+<p>RMSEA、TLI和CFI是在结构方程模型（SEM）中常用的术语。结构方程模型是一种统计技术，用于测试多个变量之间的关系。这些指标用于评估模型的拟合度，即假设的模型代表数据的程度。下面我用更通俗的语言解释这三个术语：</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>RMSEA（均方根误差近似值 Root Mean Square Error of
+Approximation）</strong>：这是衡量模型拟合数据的好坏的一个指标。RMSEA的值在0到1之间，值越低表示拟合度越好。通常情况下，小于0.05的值被认为是很好的拟合，而0.08以下的值可以被接受。</p></li>
+<li><p><strong>TLI（塔克-刘易斯指数 Tucker-Lewis
+Index）</strong>：</p></li>
+</ol>
+<p>这个指数是通过比较目标模型的卡方值与无关系模型（即变量之间没有关系的模型）的卡方值来评估模型拟合度的。TLI的值理论上在0到1之间，但有时也会超过1。接近1的值表示拟合度好。通常，大于0.95的值表示模型拟合得很好。</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>CFI（比较拟合指数 Comparative Fit Index）</strong>：</li>
+</ol>
+<p>CFI类似于TLI，也是通过比较目标模型与无关系模型的拟合度来评估的，但它考虑到了样本大小。CFI的值也是在0到1之间，越接近1表示拟合度越好。0.95或更高的CFI值通常被认为是好的拟合度。</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>SRMR（Standardized Root Mean Square Residual</strong> :</li>
+</ol>
+<p>是一种衡量结构方程模型（SEM）拟合度的指标。它主要用于评估模型残差的大小，可以理解为模型预测值与观测值之间差异的标准化平均值。以下是关于SRMR的一些关键点：</p>
+<ol style="list-style-type: decimal">
+<li><strong>含义</strong>：
+<ul>
+<li>SRMR是模型残差（即误差）的标准化均方根。它量化了模型中各观测变量间的协方差（或相关性）与数据中相应协方差（或相关性）之间的差异。</li>
+<li>一个低的SRMR值表明模型与数据的残差较小，即模型对数据的拟合度较好。</li>
+</ul></li>
+<li><strong>理想值</strong>：
+<ul>
+<li>通常，SRMR值越小越好。一般认为，SRMR值小于0.08表示模型拟合良好。</li>
+<li>有时也会使用更严格的标准，如小于0.05。</li>
+</ul></li>
+<li><strong>与其他拟合指标的关系</strong>：
+<ul>
+<li>SRMR是一种绝对拟合指标，与相对拟合指标（如CFI - Comparative Fit
+Index，TLI - Tucker-Lewis Index）和基于惩罚的拟合指标（如AIC - Akaike
+Information Criterion，BIC - Bayesian Information Criterion）不同。</li>
+<li>SRMR与这些其他拟合指标一起使用，可以提供模型拟合度的全面视图。</li>
+</ul></li>
+<li><strong>使用注意事项</strong>：
+<ul>
+<li>虽然SRMR是一个有用的指标，但它不应该单独用来评估模型的拟合度。最好结合其他指标一起使用，如CFI、TLI和RMSEA。</li>
+<li>在解释SRMR时，需要考虑模型的复杂性、样本大小以及数据的特性。</li>
+</ul></li>
+</ol>
+<p>总的来说，SRMR提供了一个量化模型预测值与观测值之间差异大小的指标，是评价模型拟合度的重要工具之一。</p>
+<p>这些指标用于全面评估提出的模型与数据的拟合程度。由于每个指标都有其局限性，且可以从不同角度反映模型拟合情况，因此使用多个指标是重要的。此外，这些指标的解释应结合研究的上下文，并与其他标准（如理论和以往研究）一起使用，而不应作为判断模型可接受性的唯一标准。</p>
 </div>
 </div>
 
