@@ -38,13 +38,13 @@ function generateInkDrops(number) {
         inkContainer.appendChild(createInkDrop());
     }
     setInterval(function () {
-        inkContainer.appendChild(createInkDrop());
+        if (inkContainer.children.length >= number) {
+            inkContainer.removeChild(inkContainer.children[0]); // 移除最早的墨点
+        }
+        inkContainer.appendChild(createInkDrop()); // 添加新的墨点
     }, 3000);
-
 }
 
 window.onload = function () {
-    generateInkDrops(3);
-
-
+    generateInkDrops(5); // 生成10个初始墨点
 };
