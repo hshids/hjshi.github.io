@@ -1,0 +1,77 @@
+---
+title: "Time Series"
+date: "`r Sys.Date()`"
+author: "HJ. S."
+output:
+  rmdformats::downcute:
+    code_folding: show
+    self_contained: true
+    thumbnails: false
+    lightbox: true
+pkgdown:
+  as_is: true
+---
+时间序列分析是一种统计技术，它涉及按时间顺序观察和分析数据点，以识别数据中的模式、趋势和周期性，以及进行预测。这是金融、经济学、商业、科学和工程等许多领域中的一个重要部分。
+
+### 时间序列分析的关键组成部分
+
+1. **趋势（Trend）**:
+   - 长期趋势，可能是上升或下降，反映了数据的总体方向。
+
+2. **季节性（Seasonality）**:
+   - 周期性的波动，通常与特定季节或时间段有关。
+
+3. **循环（Cyclic）**:
+   - 数据显示的长期波动，不一定与固定季节性模式相关。
+
+4. **随机成分（Random Component）**:
+   - 无法被模型预测的不规则或随机波动。
+
+### 时间序列分析的方法
+
+1. **移动平均（Moving Average）**:
+   - 用于平滑时间序列数据，以观察长期趋势。
+
+2. **自回归模型（AR）**:
+   - 模型假设当前值与历史值相关。
+
+3. **移动平均模型（MA）**:
+   - 模型关注序列中的误差项及其对当前值的影响。
+
+4. **自回归移动平均模型（ARMA）**:
+   - 结合了自回归和移动平均模型的特点。
+
+5. **自回归积分滑动平均模型（ARIMA）**:
+   - 适用于非平稳数据，通过差分将数据转换为平稳序列。
+
+6. **季节性自回归积分滑动平均模型（SARIMA）**:
+   - ARIMA的扩展，用于具有季节性模式的数据。
+
+### 时间序列分析的R语言实现
+
+在R中，`forecast`包提供了强大的时间序列分析和预测功能。以下是使用`forecast`包进行时间序列分析的一个基本示例：
+
+```{r}
+# 安装和加载forecast包
+if (!require("forecast")) install.packages("forecast")
+library(forecast)
+
+# 创建一个时间序列数据，这里我们使用AirPassengers数据集
+data("AirPassengers")
+
+# 查看数据的基本时间序列图
+plot(AirPassengers)
+
+# 使用自动ARIMA模型对数据进行建模
+fit <- auto.arima(AirPassengers)
+
+# 摘要模型结果
+summary(fit)
+
+# 预测未来12个时间点的数据
+forecast <- forecast(fit, h = 12)
+
+# 绘制预测结果
+plot(forecast)
+```
+
