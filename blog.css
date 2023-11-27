@@ -1,0 +1,108 @@
+.background-image {
+    position: fixed;
+    /* 或者absolute, 取决于你想如何定位它 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/back1.png');
+    background-size: cover;
+    background-position: center;
+
+    z-index: -1;
+
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    /* 确保header在最上面 */
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    margin-top: 60px;
+    /* header的高度 */
+    height: calc(100% - 120px);
+    /* 减去header和footer的高度 */
+    position: relative;
+    /* 设置为相对定位 */
+    min-height: 100vh;
+    /* 至少和视口一样高 */
+    display: flex;
+    justify-content: center;
+    /* 水平居中 */
+    align-items: center;
+    /* 垂直居中 */
+    padding: 0;
+    z-index: 1;
+    /* 确保在footer之上 */
+    overflow: auto;
+    /* 防止超出部分滚动 */
+    -webkit-overflow-scrolling: touch;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 对于宽度小于或等于600px的屏幕应用样式 */
+@media screen and (max-width: 600px) {
+    .some-class {
+        padding: 10px;
+    }
+
+    /* 其他样式... */
+}
+
+/* 对于宽度在601px到800px之间的屏幕应用样式 */
+@media screen and (min-width: 601px) and (max-width: 800px) {
+    .some-class {
+        padding: 20px;
+    }
+
+    /* 其他样式... */
+}
+
+/* 对于宽度大于800px的屏幕应用样式 */
+@media screen and (min-width: 801px) {
+    .some-class {
+        padding: 30px;
+    }
+
+    /* 其他样式... */
+}
