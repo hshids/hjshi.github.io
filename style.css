@@ -102,7 +102,7 @@ footer {
     position: absolute;
     background: rgba(0, 0, 0, 0.4);
 
-    animation: ink-splash 1.35s linear infinite;
+    animation: ink-splash 1.5s linear infinite;
 }
 
 /* 对于宽度小于或等于600px的屏幕应用样式 */
