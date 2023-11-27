@@ -39,7 +39,7 @@ function generateInkDrops(number) {
     }
     setInterval(function () {
         inkContainer.appendChild(createInkDrop());
-    }, 1000);
+    }, 100);
 
 }
 
