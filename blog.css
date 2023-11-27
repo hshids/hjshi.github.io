@@ -51,23 +51,24 @@ nav ul li a {
 main {
     margin-top: 60px;
     /* header的高度 */
-    height: calc(100% - 120px);
-    /* 减去header和footer的高度 */
-    position: relative;
-    /* 设置为相对定位 */
-    min-height: 100vh;
-    /* 至少和视口一样高 */
-    display: flex;
-    justify-content: center;
-    /* 水平居中 */
-    align-items: center;
-    /* 垂直居中 */
-    padding: 0;
-    z-index: 1;
-    /* 确保在footer之上 */
+    padding: 20px;
+    /* 适当的内边距 */
+    min-height: calc(100vh - 120px);
+    /* header和footer之外的可用高度 */
     overflow: auto;
     /* 防止超出部分滚动 */
     -webkit-overflow-scrolling: touch;
+    /* 为iOS设备添加流畅滚动 */
+    /* 移除display:flex; justify-content: center; align-items: center; */
+}
+
+.blog-post {
+    width: 100%;
+    /* 宽度设置为100% */
+    border-bottom: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    /* 其他样式保持不变 */
 }
 
 footer {
