@@ -75,3 +75,114 @@ forecast <- forecast(fit, h = 12)
 plot(forecast)
 ```
 
+
+### 1. 移动平均（Moving Average, MA）
+
+移动平均是时间序列分析中用于平滑数据的一种基本技术。它通过计算数据点的连续子集的平均值来创建一系列平均值。
+
+- **应用**:
+  - 识别数据的趋势。
+  - 去除短期波动，更清晰地看到长期趋势。
+  
+### 的R语言实例
+
+Moving Average, 移动平均是一种用于平滑时间序列数据的方法，它有助于我们识别趋势并去除短期波动。
+
+使用R语言分析苹果（Apple）、微软（Microsoft）和谷歌（Google）的股票数据。我们可以使用quantmod包从公开的金融数据源获取这些数据，并计算移动平均。
+
+**第一步：安装和加载必要的包**
+```{r}
+if (!require("quantmod")) install.packages("quantmod")
+library(quantmod)
+
+```
+
+**第二步：获取股票数据**
+
+```{r}
+# 获取苹果、微软和谷歌的股票数据
+getSymbols("AAPL", src = "yahoo", from = "2020-01-01", to = "2023-01-01")
+getSymbols("MSFT", src = "yahoo", from = "2020-01-01", to = "2023-01-01")
+getSymbols("GOOG", src = "yahoo", from = "2020-01-01", to = "2023-01-01")
+
+```
+**第三步：计算移动平均**
+
+```{r}
+# 对每个股票计算30天移动平均
+AAPL$SMA30 <- SMA(Cl(AAPL), 30)
+MSFT$SMA30 <- SMA(Cl(MSFT), 30)
+GOOG$SMA30 <- SMA(Cl(GOOG), 30)
+```
+
+**第四步：绘制价格和移动平均**
+```{r}
+# 绘制苹果的股价和30天移动平均
+chartSeries(AAPL, name = "Apple Stock Price", TA = "addSMA(n = 30, col = 'red')")
+
+```
+
+重复上述步骤为微软和谷歌的股票绘制相应的图表。
+```{r}
+# 微软
+chartSeries(MSFT, name = "Microsoft Stock Price", TA = "addSMA(n = 30, col = 'red')")
+
+# 谷歌
+chartSeries(GOOG, name = "Google Stock Price", TA = "addSMA(n = 30, col = 'red')")
+
+```
+
+在这些图表中，原始的每日收盘价以蓝色显示，而30天的简单移动平均以红色显示。这可以帮助我们观察到股票价格的整体趋势和可能的趋势转变。
+
+
+### 2. 自回归模型（Autoregressive, AR）
+
+自回归模型是时间序列数据的一种模型，在这种模型中，未来的值被假设为过去值的函数。
+
+- **公式**:
+  - \( X_t = c + \phi_1 X_{t-1} + \phi_2 X_{t-2} + ... + \phi_p X_{t-p} + \epsilon_t \)
+  - 其中，\( X_t \) 是当前值，\( X_{t-1} \) 是前一个时期的值，\( \phi \) 是参数，\( \epsilon_t \) 是误差项。
+
+- **应用**:
+  - 预测时间序列的未来值。
+
+### 3. 自回归移动平均模型（Autoregressive Moving Average, ARMA）
+
+ARMA模型结合了自回归和移动平均模型，适用于平稳时间序列。
+
+- **组成**:
+  - AR（自回归）部分和MA（移动平均）部分。
+
+- **应用**:
+  - 在平稳序列上提供更精确的拟合。
+
+### 4. 自回归积分滑动平均模型（Autoregressive Integrated Moving Average, ARIMA）
+
+ARIMA模型是ARMA模型的扩展，适用于非平稳数据。它首先对数据进行差分处理以使其平稳，然后应用ARMA模型。
+
+- **组成**:
+  - AR（自回归）、I（差分）、MA（移动平均）。
+
+- **应用**:
+  - 广泛用于非平稳时间序列数据的预测。
+
+### 5. 季节性自回归积分滑动平均模型（Seasonal Autoregressive Integrated Moving-Average, SARIMA）
+
+SARIMA模型是ARIMA模型的扩展，用于具有明显季节性模式的数据。
+
+- **特点**:
+  - 额外的季节性元素来捕捉季节性模式。
+
+- **应用**:
+  - 预测季节性变化明显的时间序列数据。
+
+### 实现这些方法
+
+在R中，你可以使用不同的包和函数来实现这些方法。例如，`forecast`包提供了`auto.arima()`函数，它可以自动选择最适合数据的ARIMA模型参数。对于移动平均和自回归模型，可以使用`stats`包中的`filter()`函数和`ar()`函数。
+
+### 注意事项
+
+- 在应用这些模型之前，重要的是先对数据进行适当的检查和预处理，包括检查数据的平稳性、季节性以及是否存在异常值。
+- 模型的选择应基于数据的特性，例如是否平稳、是否有季节性等。
+- 模型的验证和诊断也是分析过程的重要部分，以确保模型的准确性和适用性。
+
