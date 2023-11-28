@@ -62,6 +62,7 @@ main {
     /* 移除display:flex; justify-content: center; align-items: center; */
 }
 
+/* 其他样式保持不变 */
 .blog-post {
     width: 100%;
     /* 宽度设置为100% */
