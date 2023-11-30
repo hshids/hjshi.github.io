@@ -7,7 +7,7 @@
 
         <meta name="author" content="HJ. S." />
     
-        <meta name="date" content="2023-11-29" />
+        <meta name="date" content="2023-11-30" />
     
     <title>Time Series</title>
 
@@ -1929,7 +1929,7 @@ margin-left: 0 !important;
       <p class="authors">
            <span class="glyphicon glyphicon-user"></span> HJ. S.
       </p>
-         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-11-29</p>
+         <p class="date"><span class="glyphicon glyphicon-calendar"></span> 2023-11-30</p>
            
 
    
@@ -2222,8 +2222,14 @@ plot(forecast_ar)</code></pre>
 </div>
 <div id="自回归移动平均模型autoregressive-moving-average-arma" class="section level2">
 <h2>3. 自回归移动平均模型（Autoregressive Moving Average, ARMA）</h2>
-<p>ARMA模型结合了自回归和移动平均模型，适用于平稳时间序列。</p>
+<p>ARMA模型适合分析平稳的时间序列数据。它结合了自回归（AR）和移动平均（MA）两个部分。</p>
 <ul>
+<li><strong>公式</strong>:
+<ul>
+<li><span class="math inline">\(X_t = c + \phi_1 X_{t-1} + ... + \phi_p
+X_{t-p} + \theta_1 \epsilon_{t-1} + ... + \theta_q \epsilon_{t-q} +
+\epsilon_t\)</span></li>
+</ul></li>
 <li><strong>组成</strong>:
 <ul>
 <li>AR（自回归）部分和MA（移动平均）部分。</li>
@@ -2233,6 +2239,33 @@ plot(forecast_ar)</code></pre>
 <li>在平稳序列上提供更精确的拟合。</li>
 </ul></li>
 </ul>
+<div id="r语言实例arma模型" class="section level3">
+<h3>R语言实例：ARMA模型</h3>
+<pre class="r"><code># 使用forecast包
+library(forecast)
+
+# 假设apple_stock是已经获取的苹果公司股价时间序列数据
+# 首先确保数据是平稳的
+# 使用auto.arima函数来自动选择合适的ARMA模型
+arma_model &lt;- auto.arima(apple_stock, seasonal = FALSE)
+
+# 查看模型摘要
+summary(arma_model)</code></pre>
+<pre><code>## Series: apple_stock 
+## ARIMA(2,1,2) 
+## 
+## Coefficients:
+##           ar1      ar2     ma1     ma2
+##       -1.8516  -0.9749  1.8266  0.9335
+## s.e.   0.0384   0.0395  0.0656  0.0746
+## 
+## sigma^2 = 6.416:  log likelihood = -590.21
+## AIC=1190.42   AICc=1190.67   BIC=1208.07
+## 
+## Training set error measures:
+##                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
+## Training set 0.2307033 2.507812 1.80745 0.1885303 1.948679 0.9678808 -0.0980967</code></pre>
+</div>
 </div>
 <div id="自回归积分滑动平均模型autoregressive-integrated-moving-average-arima" class="section level2">
 <h2>4. 自回归积分滑动平均模型（Autoregressive Integrated Moving Average,
@@ -2248,6 +2281,27 @@ ARIMA）</h2>
 <li>广泛用于非平稳时间序列数据的预测。</li>
 </ul></li>
 </ul>
+<pre class="r"><code>### R语言实例：ARIMA模型
+# 继续使用forecast包
+# ARIMA模型通常用于非平稳数据
+arima_model &lt;- auto.arima(apple_stock)
+
+# 查看模型摘要
+summary(arima_model)</code></pre>
+<pre><code>## Series: apple_stock 
+## ARIMA(2,1,2) 
+## 
+## Coefficients:
+##           ar1      ar2     ma1     ma2
+##       -1.8516  -0.9749  1.8266  0.9335
+## s.e.   0.0384   0.0395  0.0656  0.0746
+## 
+## sigma^2 = 6.416:  log likelihood = -590.21
+## AIC=1190.42   AICc=1190.67   BIC=1208.07
+## 
+## Training set error measures:
+##                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
+## Training set 0.2307033 2.507812 1.80745 0.1885303 1.948679 0.9678808 -0.0980967</code></pre>
 </div>
 <div id="季节性自回归积分滑动平均模型seasonal-autoregressive-integrated-moving-average-sarima" class="section level2">
 <h2>5. 季节性自回归积分滑动平均模型（Seasonal Autoregressive Integrated
@@ -2263,6 +2317,29 @@ Moving-Average, SARIMA）</h2>
 <li>预测季节性变化明显的时间序列数据。</li>
 </ul></li>
 </ul>
+<div id="r语言实例sarima模型" class="section level3">
+<h3>R语言实例：SARIMA模型</h3>
+<pre class="r"><code># 假设apple_stock数据表现出季节性
+# 使用auto.arima函数，指定季节性参数
+sarima_model &lt;- auto.arima(apple_stock, seasonal = TRUE)
+
+# 查看模型摘要
+summary(sarima_model)</code></pre>
+<pre><code>## Series: apple_stock 
+## ARIMA(2,1,2) 
+## 
+## Coefficients:
+##           ar1      ar2     ma1     ma2
+##       -1.8516  -0.9749  1.8266  0.9335
+## s.e.   0.0384   0.0395  0.0656  0.0746
+## 
+## sigma^2 = 6.416:  log likelihood = -590.21
+## AIC=1190.42   AICc=1190.67   BIC=1208.07
+## 
+## Training set error measures:
+##                     ME     RMSE     MAE       MPE     MAPE      MASE       ACF1
+## Training set 0.2307033 2.507812 1.80745 0.1885303 1.948679 0.9678808 -0.0980967</code></pre>
+</div>
 </div>
 </div>
 </div>

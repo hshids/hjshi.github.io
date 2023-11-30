@@ -236,13 +236,31 @@ plot(forecast_ar)
 
 ## 3. 自回归移动平均模型（Autoregressive Moving Average, ARMA）
 
-ARMA模型结合了自回归和移动平均模型，适用于平稳时间序列。
+ARMA模型适合分析平稳的时间序列数据。它结合了自回归（AR）和移动平均（MA）两个部分。
+
+- **公式**:
+  - \( X_t = c + \phi_1 X_{t-1} + ... + \phi_p X_{t-p} + \theta_1 \epsilon_{t-1} + ... + \theta_q \epsilon_{t-q} + \epsilon_t \)
 
 - **组成**:
   - AR（自回归）部分和MA（移动平均）部分。
 
 - **应用**:
   - 在平稳序列上提供更精确的拟合。
+  
+### R语言实例：ARMA模型
+```{r}
+# 使用forecast包
+library(forecast)
+
+# 假设apple_stock是已经获取的苹果公司股价时间序列数据
+# 首先确保数据是平稳的
+# 使用auto.arima函数来自动选择合适的ARMA模型
+arma_model <- auto.arima(apple_stock, seasonal = FALSE)
+
+# 查看模型摘要
+summary(arma_model)
+```
+
 
 ## 4. 自回归积分滑动平均模型（Autoregressive Integrated Moving Average, ARIMA）
 
@@ -253,6 +271,18 @@ ARIMA模型是ARMA模型的扩展，适用于非平稳数据。它首先对数�
 
 - **应用**:
   - 广泛用于非平稳时间序列数据的预测。
+  
+```{r}
+### R语言实例：ARIMA模型
+# 继续使用forecast包
+# ARIMA模型通常用于非平稳数据
+arima_model <- auto.arima(apple_stock)
+
+# 查看模型摘要
+summary(arima_model)
+```
+
+
 
 ## 5. 季节性自回归积分滑动平均模型（Seasonal Autoregressive Integrated Moving-Average, SARIMA）
 
@@ -264,6 +294,18 @@ SARIMA模型是ARIMA模型的扩展，用于具有明显季节性模式的数据
 - **应用**:
   - 预测季节性变化明显的时间序列数据。
 
+
+
+### R语言实例：SARIMA模型
+
+```{r}
+# 假设apple_stock数据表现出季节性
+# 使用auto.arima函数，指定季节性参数
+sarima_model <- auto.arima(apple_stock, seasonal = TRUE)
+
+# 查看模型摘要
+summary(sarima_model)
+```
 
 
 
