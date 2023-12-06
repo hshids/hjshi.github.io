@@ -238,4 +238,177 @@ print(predicted_probs)
 
 请注意，这种方法并不是直接使用贝叶斯网络进行预测，而是利用网络结构来指导传统统计模型的构建。
 
+## MCMC（Markov Chain Monte Carlo）马尔可夫链
 
+MCMC（Markov Chain Monte Carlo）是一种在统计学中使用的算法，用于从复杂的概率分布中抽取样本。在贝叶斯统计中，MCMC特别重要，因为它可以用来近似复杂后验概率分布，特别是当这些分布难以解析计算时。它特别适用于那些难以用解析方法直接计算的复杂概率分布。MCMC通过构建马尔可夫链来生成样本，这些样本的分布逐渐逼近目标概率分布，从而允许我们进行有效的近似推断。
+
+MCMC通过构建一个马尔可夫链来工作。这个链在可能解的空间中随机“游走”，其特点是每一步的位置只依赖于前一步的位置。随着时间的推移，这个链的分布趋于稳定，从而近似目标分布（例如后验分布）。
+
+### MCMC的关键概念
+
+1. **马尔可夫链**:
+   - 一种随机过程，当前状态只依赖于前一个状态，不依赖于更早的历史。
+2. **蒙特卡罗方法**:
+   - 一种利用随机抽样来近似复杂计算的方法。
+
+### MCMC在贝叶斯统计中的应用
+
+- **后验分布的抽样**:
+  - 在贝叶斯分析中，MCMC用于从后验分布中抽取样本，特别是当这个分布难以直接计算时。
+- **参数估计**:
+  - MCMC方法使我们能够估计模型参数的后验分布，从而了解参数的不确定性。
+
+
+### 故事： 霍格沃茨火焰杯与马尔可夫链
+
+一年一度三强争霸赛比赛时，哈利波特需要找到特殊的药水，使他能在水下呼吸。这种药水的配方被隐藏起来，只有通过解决一系列复杂的谜题才能找到
+ 
+**谜题的贝叶斯解读**
+ 
+- 问题: 药水配方由多个成分组成，每个成分的正确比例是未知的。
+ 
+- 目标: 使用MCMC来估计这些成分的最佳比例。
+ 
+**MCMC在寻找答案中的角色**
+ 
+- 构建马尔可夫链: 三人组通过实验和收集线索，逐步构建了一条马尔可夫链，每一步都基于前一步的信息进行调整，逐渐逼近药水的正确配方。
+ 
+- 探索可能的解决方案: 通过MCMC，他们能够探索一系列可能的配方，每个配方都有一定的概率是正确的
+ 
+- 找到最可能的配方: 随着时间的推移，他们发现某些配方比其他配方更可能是正确的。MCMC帮助他们确定哪些成分比例最有可能产生有效的药水。
+ 
+**药水的成功制作**
+ 
+最终，通过MCMC的帮助，赫敏成功地锁定了最有可能的药水配方，并让哈利波特在水下任务中成功救出芙蓉的妹妹和罗恩。
+
+### MCMC的实际应用
+
+在现实世界中，MCMC被广泛用于估计复杂模型的参数，特别是在贝叶斯统计学中。它允许研究人员从概率模型的后验分布中抽取样本，从而进行参数估计和预测。虽然MCMC是一种强大的工具，但它也需要仔细的设计和验证，以确保得到的样本是代表性的并且收敛于真实的后验分布。
+
+在实际应用中，MCMC被用于各种统计模型和问题中，例如在经济学、生物统计学和机器学习等领域。它特别适合于那些后验分布难以直接计算，或者模型过于复杂无法解析求解的情况。
+
+MCMC是一种强大但计算密集的方法，它要求仔细地选择和调整算法参数，比如步长、迭代次数等，以确保有效和准确的抽样。
+
+### R 语言中的MCMC实现
+
+在R中，有多个包可用于实现MCMC，如rjags、Stan和BUGS等。这些包提供了工具和函数来定义模型、执行MCMC抽样并分析结果。
+
+我使用R语言实现MCMC的完整示例。在这个例子中，我们将使用rjags包，它是一个接口到JAGS（Just Another Gibbs Sampler）的库，JAGS是一个用于贝叶斯模型的MCMC抽样的程序。
+
+注意！！MAC上无法install的小伙伴看过来：
+
+Easiest way to install native arm64 jags:
+brew install pkg-config jags
+/Applications/RStudio.app/Contents/MacOS/RStudio
+install.packages("rjags", type="source")
+
+当然，以下是关于如何使用JAGS（Just Another Gibbs Sampler，又一个吉布斯采样器）的中文教程概述，这是一个用于贝叶斯统计中进行马尔可夫链蒙特卡洛（MCMC）模拟的程序。
+
+### JAGS简介
+JAGS是一个独立的程序，用于执行MCMC模拟。它接受贝叶斯模型描述（先验加似然）和数据作为输入，返回后验分布的MCMC样本。JAGS使用Metropolis采样、Gibbs采样和其他MCMC算法的组合。
+
+1. **加载数据**
+   - 数据可以从文件加载，或通过足够的摘要统计信息指定。例如，可以指定样本大小和成功次数。
+
+2. **指定模型：似然和先验**
+   - JAGS模型规范以`model`开始。模型提供了似然和先验的文本描述。这个文本字符串随后会传递给JAGS进行翻译。
+   - 以Beta-Binomial模型为例，先验分布是Beta分布，似然函数是二项分布。
+
+3. **在JAGS中编译模型**
+   - 将模型（即文本字符串）和数据传递给JAGS进行编译。可以通过`textConnection`函数定义文本字符串。模型也可以保存在单独的文件中，文件名被传递给JAGS。数据以列表形式传递给JAGS。
+
+4. **从后验分布中模拟值**
+   - 在JAGS中模拟值分为两个步骤。首先，使用`update`命令运行模拟一个“烧入”期。然后，使用`coda.samples`从后验分布中模拟我们实际保留的值。使用`coda.samples`可以方便地使用coda包来总结和诊断MCMC模拟。
+
+5. **总结模拟值和诊断检查**
+   - 使用R的标准函数（如`summary`和`plot`）来总结`coda.samples`的结果。可以对theta的模拟值进行总结，以近似后验分布。
+
+```{r}
+if (!require("rjags")) {
+    install.packages("rjags", type="source")
+}
+library(rjags)
+```
+
+```{r}
+n = 35 # sample size
+y = 31 # number of successes
+```
+
+```{r}
+# 编写模型
+model_string <- "model{
+
+  # Likelihood
+  y ~ dbinom(theta, n)
+
+  # Prior
+  theta ~ dbeta(alpha, beta)
+  alpha <- 3 # prior successes
+  beta <- 1 # prior failures
+
+}"
+```
+
+
+```{r}
+dataList = list(y = y, n = n)
+
+model <- jags.model(file = textConnection(model_string), 
+                    data = dataList)
+
+```
+
+```{r}
+# 从后验分布中模拟值
+update(model, n.iter = 1000) # 模拟的值的数量
+```
+
+```{r}
+Nrep = 10000 # number of values to simulate
+
+posterior_sample <- coda.samples(model,
+                       variable.names = c("theta"),
+                       n.iter = Nrep)
+```
+
+```{r}
+summary(posterior_sample)
+```
+
+```{r}
+plot(posterior_sample)
+```
+
+```{r}
+thetas = as.matrix(posterior_sample)
+head(thetas)
+```
+
+```{r}
+hist(thetas)
+```
+
+```{r}
+ynew = rbinom(Nrep, n, thetas)
+
+plot(table(ynew),
+     main = "Posterior Predictive Distribution for samples of size 35",
+     xlab = "y")
+```
+
+The JAGS (Just Another Gibbs Sampler) is a program used for performing Markov Chain Monte Carlo (MCMC) simulations in Bayesian statistics. JAGS is particularly useful for Bayesian model estimation, where it takes a model description (prior and likelihood) and data to return an MCMC sample from the posterior distribution. The process involves various MCMC algorithms, including Metropolis and Gibbs sampling.
+
+Key steps in using JAGS are:
+
+1. **Load the Data**: Data can be loaded from a file or specified via summary statistics. An example used is a "data is singular" context with a specified sample size and number of successes.
+
+2. **Specify the Model**: This involves writing a model statement that describes the likelihood and prior distributions. For example, in a Beta-Binomial model, you specify the Beta distribution as the prior and Binomial as the likelihood function.
+
+3. **Compile the Model in JAGS**: The model, written as a text string, is passed to JAGS along with the data for compilation.
+
+4. **Simulate Values from the Posterior Distribution**: After a 'burn-in' period using the `update` function, values from the posterior distribution are simulated using `coda.samples`. This step is crucial for generating the posterior samples needed for inference.
+
+5. **Summarize Simulated Values and Check Diagnostics**: Standard functions from R (like `summary` and `plot`) are used to summarize and visually inspect the results from the MCMC simulation. This step is vital for understanding the posterior distribution and checking the convergence and other diagnostic measures of the MCMC simulation.
+
+The section emphasizes the ease of integrating JAGS with R using the `rjags` package, allowing for a seamless workflow within the R environment. This integration is particularly beneficial for those who are already familiar with R and wish to conduct Bayesian data analysis without switching between different software environments.
